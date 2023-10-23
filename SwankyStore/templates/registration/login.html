@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<!-- if login transaction has error -->
+{% if form.errors %}
+    <div class="alert alert-danger m-auto" role="alert">
+        Your username and password didn't match. Please try again.
+    </div>
+{% endif %}
+
+<div style="width: 30%;" class="d-flex align-items-center py-4 container">
+    
+<main class="form-signin w-100 m-auto">
+  <form method="POST" action="{% url 'login' %}">
+    {%csrf_token%}
+      <img class="mb-4" src="{% static '/img/logo.png' %}" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 fw-bold">Please login</h1>
+
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+
+      <p class="mt-5 mb-3 text-body-secondary">&copy; Created by swanky</p>
+  </form>
+</main>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</div>
+  {% endblock %}

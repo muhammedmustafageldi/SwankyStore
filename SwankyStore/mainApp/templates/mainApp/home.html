@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row mx-auto">
+        {% for product in products %}
+            <div class="col-md-3 mx-auto mb-3">
+                <div class="card mx-auto mb-3" style="width: 18rem;">
+                    <img style="background-color: azure; padding: 3%;" height="250px" src="{{ product.image.url }}" class="card-img-top" alt="product image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title|truncatechars:20 }}</h5>
+                            <div class="price-text">
+                                {{ product.price }} TL
+                            </div>
+                        <hr class="my-hr">
+                        <p class="card-text">{{ product.description|truncatechars:60 }}</p>
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <a href="#" class="btn btn-primary btn-block" style="width: 100%;">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>    
+
+{% endblock %}

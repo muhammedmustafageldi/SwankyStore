@@ -1,0 +1,70 @@
+body{
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.my-brand-div{
+    display: flex;
+    align-items: center; 
+    height: 50px;  
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+.center-container{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.px-3{
+    background-color: rgb(250, 227, 196);
+}
+
+.btn-primary{
+    background-color: #212529;
+    border-color: #ffc107;
+
+}
+
+.btn-primary:hover{
+    background-color: #ffda69;
+    border-color: #ffc107;
+} 
+
+.nav-link {
+    color: rgb(255, 11, 11);
+}
+  
+.nav-item.active .nav-link {
+    color: red; 
+}
+
+.card-footer{
+    background-color: #212529;
+}
+
+.card-body{
+    background-color: #212529;
+}
+
+.card-title{
+    color: azure;
+}
+
+.card-text{
+    color: azure;
+}
+
+.my-hr{
+    color: azure;
+}
+
+.price-text{
+    color: #ffc107;
+    font-weight: bold;
+    font-size: large;
+}
+
