@@ -6,6 +6,7 @@
     <title>Swanky Store</title>
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     
 </head>
 <body>
@@ -84,13 +85,13 @@
             {% if user.is_authenticated %}
               <div class="d-flex align-items-center">
                 <div class="container">
-                  <p style="font-weight: bold; color: #212529;" class="m-0">Hoş geldiniz, {{ user.username }}</p>     
+                  <p style="font-weight: bold; color: #212529;" class="m-0">Hoş geldiniz, {{ user.username }}</p>
                 </div>  
                 <a href="{% url 'logout'%}?next=/" type="button" class="btn btn-danger">Logout</a>
               </div>
             {% else %}
               <a href="{% url 'login' %}" type="button" class="btn btn-warning">Login</a>
-              <a href="" type="button" class="btn btn-primary">Sign-up</a>
+              <a href="{% url 'mainApp:sign_up' %}" type="button" class="btn btn-primary">Sign-up</a>
             {% endif %}
             
           </div>

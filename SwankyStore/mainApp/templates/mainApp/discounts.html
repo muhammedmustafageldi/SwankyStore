@@ -1,7 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
+<div class="container">
+    
 
+    <div class="row mx-auto">
+        {% for product in products %}
+            <div class="col-md-3 mx-auto mb-3">
+                <div class="card mx-auto mb-3" style="width: 18rem; position: relative;">
+                    
+                    <img width="32" height="32" src="{% static '/img/discount.png' %}" alt="Image" class="corner-img m-1">
+                    <img style="background-color: rgb(250, 255, 255); padding: 3%;" height="250px" src="{{ product.image.url }}" class="card-img-top" alt="product image">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title|truncatechars:20 }}</h5>
+                            <div class="price-text">
+                                <span style="text-decoration: line-through;">{{ product.price }} TL</span>
+                                <span class="new-price">{{ product.new_price }} TL</span> 
+                            </div>
+                        <hr class="my-hr">
+                        <p class="card-text">{{ product.description|truncatechars:60 }}</p>
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <form method="POST" action="{% url 'mainApp:add_to_cart' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="product_id" value="{{product.id}}">
+                            <input type="hidden" name="page_name" value="discounts">
+                            <button type="submit" class="btn btn-primary btn-block" style="width: 100%;">Add to cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>    
 
 {% endblock %}

@@ -7,7 +7,9 @@ class Product(models.Model):
     stock = models.IntegerField()
     image = models.ImageField(upload_to="product_pictures/")
     discount_percent = models.IntegerField(default=0)
+    new_price = 0
 
     
     def __str__(self) -> str:
         return self.title
+

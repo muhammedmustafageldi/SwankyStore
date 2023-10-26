@@ -68,8 +68,21 @@ body{
     font-size: large;
 }
 
-.wellcome-text{
-    margin-bottom: 5px;
-    font-weight: bold;
+.card {
+    position: relative;
 }
+
+.card-img-top {
+    z-index: 1;
+}
+
+.corner-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px; 
+    height: 32px; 
+    z-index: 2; 
+}
+
 

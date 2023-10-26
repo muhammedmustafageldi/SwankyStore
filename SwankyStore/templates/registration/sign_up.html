@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+{% if error_message %}
+    <div class="alert alert-danger m-auto" role="alert">
+        {{ error_message }}
+    </div>
+{% endif %}
+
+<div style="width: 30%;" class="d-flex align-items-center py-4 container">
+    
+    <main class="form-signin w-100 m-auto">
+      <form method="POST" action="{% url 'mainApp:sign_up' %}">
+        {%csrf_token%}
+          <img class="mb-4" src="{% static '/img/logo.png' %}" alt="logo" width="72" height="72">
+          <h1 class="h3 mb-3 fw-bold">Sign Up</h1>
+          
+          <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+            <label for="username">Username</label>
+          </div>
+    
+          <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+            <label for="password">Password</label>
+          </div>
+
+          <div class="form-floating mb-2">
+            <input type="password" class="form-control" id="passwordConf" placeholder="Password Again" name="passwordConf">
+            <label for="passwordConf">Password Again</label>
+          </div>
+    
+          <button class="btn btn-primary w-100 py-2" type="submit">Sign Up</button>
+    
+          <p class="mt-5 mb-3 text-body-secondary">&copy; Created by swanky</p>
+      </form>
+    </main>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    </div>
+
+
+{% endblock %}
