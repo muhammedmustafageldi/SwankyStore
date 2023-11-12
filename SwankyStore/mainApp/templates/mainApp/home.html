@@ -47,3 +47,13 @@
 
 
 {% endblock %}
+
+{% block cart_count %}
+
+{% if cart_count %}
+<span class="badge bg-danger position-absolute top-50 translate-middle p-1">
+    {{ cart_count }}
+</span>
+{% endif %}
+
+{% endblock %}

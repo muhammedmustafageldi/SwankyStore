@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swanky Store</title>
     <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">    
 </head>
 <body>
     
@@ -41,13 +39,16 @@
               </a>
             </li>
             <li>
-              <a href="{% url 'mainApp:my_cart' %}" class="nav-link text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>                
-                My Cart
+              <a href="{% url 'mainApp:my_cart' %}" class="nav-link text-white position-relative">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                  My Cart
+                  {% block cart_count %}
+                  
+                  {% endblock %}
               </a>
-            </li>
+            </li>          
             <li>
               <a href="{% url 'mainApp:about' %}" class="nav-link text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -72,8 +73,9 @@
     <div class="px-3 py-2 border-bottom mb-3">
       <div class="container d-flex flex-wrap justify-content-center">
         {% if request.path == '/' %}
-            <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
-                <input type="search" class="form-control" placeholder="Search Product..." aria-label="Search Product">
+            <form method="POST" action="{% url 'mainApp:index' %}" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto" role="search">
+                {% csrf_token %}
+                <input type="search" name="search_key" class="form-control" placeholder="Search Product..." aria-label="Search Product">
             </form>
         {% else %}    
             <hr class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
@@ -85,7 +87,7 @@
             {% if user.is_authenticated %}
               <div class="d-flex align-items-center">
                 <div class="container">
-                  <p style="font-weight: bold; color: #212529;" class="m-0">Hoş geldiniz, {{ user.username }}</p>
+                  <p style="font-weight: bold; color: #212529;" class="m-0">Happy shopping, {{ user.username }}</p>
                 </div>  
                 <a href="{% url 'logout'%}?next=/" type="button" class="btn btn-danger">Logout</a>
               </div>

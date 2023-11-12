@@ -59,7 +59,7 @@ body{
 }
 
 .my-hr{
-    color: azure;
+    color: #ffc107;
 }
 
 .price-text{
@@ -84,5 +84,4 @@ body{
     height: 32px; 
     z-index: 2; 
 }
-
 
