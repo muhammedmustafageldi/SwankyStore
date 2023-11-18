@@ -44,10 +44,6 @@ pip install Django
 ## Feedback
 
 If you have any feedback, please contact us at muhammedmustafageldi@gmail.com.
-
-## Destek
-
-Destek için fake@fake.com adresine e-posta gönderin veya Slack kanalımıza katılın.
   
 ## CONTRIBUTION
 
